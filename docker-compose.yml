@@ -1,0 +1,18 @@
+services:
+  # Webアプリケーション
+  botapp:
+    build: ./botapp  # Dockerfileの場所
+    ports:
+      - "5000:5000"  # ホスト:コンテナ のポートマッピング
+    environment:
+      - NODE_ENV=production  # 本番環境モード
+    restart: unless-stopped  # 停止しない限り自動再起動
+
+  # Webアプリケーション
+  webapp:
+    build: ./webapp  # Dockerfileの場所
+    ports:
+      - "3000:3000"  # ホスト:コンテナ のポートマッピング
+    environment:
+      - NODE_ENV=production  # 本番環境モード
+    restart: unless-stopped  # 停止しない限り自動再起動
