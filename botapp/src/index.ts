@@ -3,7 +3,11 @@ import { Hono } from 'hono'
 
 const app = new Hono()
 
-app.get('/', (c) => {
+app.get('/api', (c) => {
+  return c.text('Hello Hono!')
+})
+
+app.get('/api/healthCheck', (c) => {
   return c.text('Hello Hono!')
 })
 
